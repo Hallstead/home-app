@@ -19,7 +19,7 @@ peopleRouter.get('', (request, response, next) => {
 });
 
 peopleRouter.get('/hello', (request, response, next) => {
-    response.json({message: "Hello, goodbye!"})
+    response.json({message: "Hello and goodbye!"})
 })
 /*
     http://localhost:3000/people/1
