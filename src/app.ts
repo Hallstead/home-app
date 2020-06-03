@@ -5,7 +5,7 @@ import { peopleRouter } from './routers/people-router';
 
 const app = express();
 
-const port = process.env.port || 3000;
+const port = process.env.port || 3001;
 app.set('port', port);
 
 /*
@@ -18,11 +18,11 @@ app.use(bodyParser.json());
 */
 app.use('/people', peopleRouter);
 app.use('/shutdown', (request, response, next) => {
-    console.log(request.ip);
+    response.send(request.ip);
     process.exit();
 });
 
-/*test
+/*
     Listen for SIGINT signal - issued by closing the server with ctrl+c
     This releases the database connections prior to app being stopped
 */
