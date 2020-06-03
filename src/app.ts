@@ -19,10 +19,11 @@ app.use(bodyParser.json());
 app.use('/people', peopleRouter);
 app.use('/shutdown', (request, response, next) => {
     if (request.ip != "::ffff:172.31.45.201") {
-        response.send("Sender is not authorized to perform this task.");
+        response.send("Sender is not authorized to perform this task.\n");
         next();
     } else {
-        process.exit(0);
+        response.send("Now closing server.\n");
+        process.exit();
     }
 });
 
