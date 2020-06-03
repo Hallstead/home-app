@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use('/people', peopleRouter);
 app.use('/shutdown', (request, response, next) => {
     response.send(request.ip);
-    process.exit();
+    process.exit(0);
 });
 
 /*
