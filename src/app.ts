@@ -22,7 +22,7 @@ app.use('/shutdown', (request, response, next) => {
     process.exit();
 });
 
-/*
+/*test
     Listen for SIGINT signal - issued by closing the server with ctrl+c
     This releases the database connections prior to app being stopped
 */
