@@ -18,8 +18,12 @@ app.use(bodyParser.json());
 */
 app.use('/people', peopleRouter);
 app.use('/shutdown', (request, response, next) => {
-    response.send(request.ip);
-    process.exit(0);
+    if (request.ip != "::ffff:172.31.45.201") {
+        response.send("Sender is not authorized to perform this task.");
+        next();
+    } else {
+        process.exit(0);
+    }
 });
 
 /*
