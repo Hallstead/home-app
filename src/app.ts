@@ -17,6 +17,10 @@ app.use(bodyParser.json());
     ? Router Registration
 */
 app.use('/people', peopleRouter);
+app.use('/shutdown', (request, response, next) => {
+    console.log(request.ip);
+    process.exit();
+});
 
 /*
     Listen for SIGINT signal - issued by closing the server with ctrl+c
